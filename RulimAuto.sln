@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulimAuto.Domain", "src\Rul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulimAuto.Application", "src\RulimAuto.Application\RulimAuto.Application.csproj", "{1FD6CCC6-C816-4618-A95C-72FFC5DF0F1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulimAuto.Infrastucture", "src\RulimAuto.Infrastucture\RulimAuto.Infrastucture.csproj", "{E178ED46-2BA0-4338-8B1D-E021122835D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulimAuto.Infrastructure", "src\RulimAuto.Infrastructure\RulimAuto.Infrastructure.csproj", "{E178ED46-2BA0-4338-8B1D-E021122835D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulimAuto.WebApi", "src\RulimAuto.WebApi\RulimAuto.WebApi.csproj", "{34113584-A8E3-44CA-A777-D60CCD055700}"
 EndProject

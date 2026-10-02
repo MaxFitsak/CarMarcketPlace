@@ -1,27 +1,35 @@
-using RulimAuto.Application;
-using RulimAuto.Infrastucture;
-using RulimAuto.WebApi.Middlewares;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Реєстрація залежностей Clean Architecture
-builder.Services.AddApplication();
-builder.Services.AddInfrastructure(builder.Configuration);
+var connection = builder.Configuration.GetConnectionString("DefaultConnection");
+//builder.Services.AddDbContext<rulimauto>(options => options.UseSqlite(connection));
 
-// Реєстрація контролерів
-builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddAuthorization();
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Конвеєр обробки запитів (Pipeline)
-app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=AutoRulim}/{action=Index}/{id?}");
 
 app.Run();
