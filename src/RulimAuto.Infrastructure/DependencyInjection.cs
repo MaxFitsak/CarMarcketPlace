@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RulimAuto.Infrastructure.Contextes;
+using RulimAuto.Infrastructure;
 
 namespace RulimAuto.Infrastructure;
 

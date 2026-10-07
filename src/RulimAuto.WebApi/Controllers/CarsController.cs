@@ -1,6 +1,3 @@
-namespace RulimAuto.WebApi.Controllers;
+using Microsoft.AspNetCore.Mvc;
 
-public class CarsController
-{
-    
-}
+namespace RulimAuto.WebApi.Controllers;

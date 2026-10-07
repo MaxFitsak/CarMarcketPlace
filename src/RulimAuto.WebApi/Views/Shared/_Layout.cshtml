@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RulimAuto</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+<header class="ra-header">
+    <nav class="navbar navbar-expand-lg container">
+        <a class="ra-logo" asp-controller="Home" asp-action="Index">
+            <span class="ra-logo-mark" aria-hidden="true"></span>RulimAuto
+        </a>
+
+        <button class="navbar-toggler ra-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto ms-lg-4 gap-lg-1">
+                <li class="nav-item">
+                    <a class="nav-link ra-link" asp-controller="Listings" asp-action="Login">Купить авто</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ra-link" asp-controller="Listings" asp-action="Create">Продать авто</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ra-link" asp-controller="Listings" asp-action="My">Мои объявления</a>
+                </li>
+            </ul>
+
+            <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+                <a class="btn ra-btn-ghost" asp-controller="Account" asp-action="Login">Войти</a>
+                <a class="btn ra-btn-accent" asp-controller="Listings" asp-action="Create">Подать объявление</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="ra-main">
+    <div class="container py-4 py-lg-5">
+        @RenderBody()
+    </div>
+</main>
+
+<footer class="ra-footer">
+    <div class="container">
+        <div class="row gy-5 ra-footer-top">
+            <div class="col-lg-4">
+                <a class="ra-logo ra-logo-light" asp-controller="Home" asp-action="Index">
+                    <span class="ra-logo-mark" aria-hidden="true"></span>RulimAuto
+                </a>
+                <p class="ra-footer-text mt-3">
+                    Площадка, где частные продавцы и покупатели находят друг друга напрямую.
+                    Без лишних посредников.
+                </p>
+            </div>
+
+            <div class="col-6 col-lg-2 offset-lg-1">
+                <h6 class="ra-footer-title">Покупателям</h6>
+                <ul class="ra-footer-list">
+                    <li><a asp-controller="Listings" asp-action="Index">Каталог авто</a></li>
+                    <li><a asp-controller="Listings" asp-action="Index">Поиск по марке</a></li>
+                    <li><a asp-controller="Favorites" asp-action="Index">Избранное</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-lg-2">
+                <h6 class="ra-footer-title">Продавцам</h6>
+                <ul class="ra-footer-list">
+                    <li><a asp-controller="Listings" asp-action="Create">Подать объявление</a></li>
+                    <li><a asp-controller="Listings" asp-action="My">Мои объявления</a></li>
+                    <li><a asp-controller="Home" asp-action="Rules">Правила размещения</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3">
+                <h6 class="ra-footer-title">Связаться с нами</h6>
+                <ul class="ra-footer-list">
+                    <li><a href="mailto:support@rulimauto.example">support@rulimauto.example</a></li>
+                    <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+                    <li class="ra-footer-muted">Ежедневно с 9:00 до 21:00</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ra-footer-bottom">
+            <span>&copy; @DateTime.Now.Year RulimAuto. Все права защищены.</span>
+            <span class="ra-footer-legal">
+                <a asp-controller="Home" asp-action="Privacy">Конфиденциальность</a>
+                <a asp-controller="Home" asp-action="Terms">Условия использования</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

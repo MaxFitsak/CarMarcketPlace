@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<section class="ra-hero">
+    <h1>Найдите свою машину<br />или продайте текущую</h1>
+    <p class="ra-hero-sub">Объявления от частных владельцев. Связывайтесь напрямую, без посредников.</p>
+
+    <form class="ra-search" asp-controller="Listings" asp-action="Index" method="get">
+        <div class="row g-2">
+            <div class="col-md-4">
+                <label class="visually-hidden" for="brand">Марка</label>
+                <input id="brand" name="brand" class="form-control form-control-lg" placeholder="Марка или модель" />
+            </div>
+            <div class="col-md-3">
+                <label class="visually-hidden" for="maxPrice">Цена до</label>
+                <input id="maxPrice" name="maxPrice" type="number" min="0" class="form-control form-control-lg" placeholder="Цена до" />
+            </div>
+            <div class="col-md-3">
+                <label class="visually-hidden" for="yearFrom">Год от</label>
+                <input id="yearFrom" name="yearFrom" type="number" min="1950" class="form-control form-control-lg" placeholder="Год от" />
+            </div>
+            <div class="col-md-2 d-grid">
+                <button type="submit" class="btn ra-btn-accent btn-lg">Найти</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+<section class="row g-3 my-4">
+    <div class="col-md-6">
+        <a class="ra-action" asp-controller="Listings" asp-action="Index">
+            <h2>Купить авто</h2>
+            <p>Каталог с фильтрами по марке, цене, году и пробегу.</p>
+        </a>
+    </div>
+    <div class="col-md-6">
+        <a class="ra-action ra-action-accent" asp-controller="Listings" asp-action="Create">
+            <h2>Продать авто</h2>
+            <p>Опубликуйте объявление с фото за несколько минут.</p>
+        </a>
+    </div>
+</section>
+
+<section class="mt-5">
+    <div class="d-flex justify-content-between align-items-baseline mb-3">
+        <h2 class="h4 mb-0">Свежие объявления</h2>
+        <a asp-controller="Listings" asp-action="Index">Весь каталог</a>
+    </div>
+
+    @* Заглушки: позже заменить на реальные данные из Query *@
+    <div class="row g-3">
+        @for (var i = 1; i <= 4; i++)
+        {
+            <div class="col-6 col-lg-3">
+                <div class="ra-card ra-listing">
+                    <div class="ra-listing-photo"></div>
+                    <div class="p-3">
+                        <div class="fw-semibold">Марка Модель</div>
+                        <div class="text-muted small">2018, 85 000 км</div>
+                        <div class="ra-price mt-2">1 250 000 ₽</div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

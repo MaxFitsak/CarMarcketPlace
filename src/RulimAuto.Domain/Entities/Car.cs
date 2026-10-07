@@ -10,4 +10,8 @@ public class Car
     public string? CarLicensePlate { get; set; }
     public int VinNumber { get; set; }
     public int HorsePower { get; set; }
+    
+    private Car() { }
+    
+    
 }

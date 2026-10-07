@@ -1,0 +1,171 @@
+/* ===== RulimAuto: дизайн-токены ===== */
+:root {
+  --ra-primary: #0f5c5a;       /* глубокий бирюзовый: шапка, подвал */
+  --ra-primary-dark: #0a3f3e;
+  --ra-accent: #f2a900;        /* дорожная разметка: главные кнопки */
+  --ra-accent-dark: #d99700;
+  --ra-bg: #f4f6f7;
+  --ra-surface: #ffffff;
+  --ra-text: #1c2b2b;
+  --ra-muted: #6b7a7a;
+  --ra-border: #dde3e3;
+  --ra-radius: 10px;
+
+  --ra-font-body: "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ra-font-display: "Unbounded", "Onest", system-ui, sans-serif;
+}
+
+/* ===== База и sticky footer ===== */
+html { font-size: 16px; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  background: var(--ra-bg);
+  color: var(--ra-text);
+  font-family: var(--ra-font-body);
+  line-height: 1.55;
+}
+
+.ra-main { flex: 1 0 auto; }
+
+h1, h2, h3 {
+  font-family: var(--ra-font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+a:focus-visible, .btn:focus-visible, button:focus-visible {
+  outline: 3px solid var(--ra-accent);
+  outline-offset: 2px;
+}
+
+/* ===== Логотип ===== */
+.ra-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: var(--ra-font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #fff;
+  text-decoration: none;
+}
+.ra-logo:hover { color: #fff; }
+
+.ra-logo-mark {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background:
+          radial-gradient(circle at center, var(--ra-primary) 0 22%, transparent 23%),
+          var(--ra-accent);
+}
+
+/* ===== Шапка ===== */
+.ra-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: var(--ra-primary);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .08), 0 4px 16px rgba(10, 63, 62, .25);
+}
+
+.ra-header .navbar { padding-top: .75rem; padding-bottom: .75rem; }
+
+.ra-link {
+  color: rgba(255, 255, 255, .85) !important;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: .5rem .9rem !important;
+  transition: background-color .15s, color .15s;
+}
+.ra-link:hover { background: rgba(255, 255, 255, .12); color: #fff !important; }
+
+.ra-toggler { border-color: rgba(255, 255, 255, .4); }
+.ra-toggler .navbar-toggler-icon { filter: invert(1); }
+
+/* ===== Кнопки ===== */
+.ra-btn-accent {
+  background: var(--ra-accent);
+  border: 0;
+  color: #1c2b2b;
+  font-weight: 600;
+  padding: .55rem 1.1rem;
+  border-radius: var(--ra-radius);
+}
+.ra-btn-accent:hover { background: var(--ra-accent-dark); color: #1c2b2b; }
+
+.ra-btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .45);
+  color: #fff;
+  font-weight: 500;
+  padding: .55rem 1.1rem;
+  border-radius: var(--ra-radius);
+}
+.ra-btn-ghost:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+
+/* ===== Подвал ===== */
+.ra-footer {
+  flex-shrink: 0;
+  margin-top: 3rem;
+  background: var(--ra-primary-dark);
+  color: rgba(255, 255, 255, .78);
+  border-top: 4px solid var(--ra-accent);
+}
+
+.ra-footer-top { padding: 3rem 0 2.5rem; }
+
+.ra-footer-text { max-width: 22rem; font-size: .95rem; }
+
+.ra-footer-title {
+  margin-bottom: 1rem;
+  font-family: var(--ra-font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.ra-footer-list { list-style: none; margin: 0; padding: 0; }
+.ra-footer-list li { margin-bottom: .6rem; font-size: .95rem; }
+
+.ra-footer a {
+  color: rgba(255, 255, 255, .78);
+  text-decoration: none;
+  transition: color .15s;
+}
+.ra-footer a:hover { color: var(--ra-accent); }
+
+.ra-footer-muted { color: rgba(255, 255, 255, .5); }
+
+.ra-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+  padding: 1.25rem 0 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  font-size: .875rem;
+  color: rgba(255, 255, 255, .6);
+}
+
+.ra-footer-legal { display: flex; gap: 1.5rem; }
+
+/* ===== Общие компоненты для страниц ===== */
+.ra-card {
+  background: var(--ra-surface);
+  border: 1px solid var(--ra-border);
+  border-radius: var(--ra-radius);
+}
+
+@media (max-width: 991.98px) {
+  .ra-header .navbar-collapse { padding-bottom: .5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
